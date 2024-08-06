@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dineth | Ranjanas Facilities Managements</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+
+    <style>
+      
+        /* Global Styles */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #3b722c; /* Light sky blue background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        /* Water bubbles background */
+        .bubble {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            animation: float 10s ease-in-out infinite;
+            opacity: 0;
+        }
+
+        /* Card container */
+        .card {
+            perspective: 1000px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        /* Card styles */
+        .business-card {
+            width: 420px;  /* Increased width */
+            height: 280px; /* Increased height */
+            position: relative;
+            transform-style: preserve-3d;
+            transform: rotateY(0deg);
+            transition: transform 0.8s ease;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Front and back face of the card */
+        .business-card .face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            color: #fff;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* Front face styling */
+        .business-card .front {
+            animation: slideInFromLeft 1s ease-out;
+        }
+
+        /* Profile pictures container */
+        .profile-pictures {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        /* Profile picture */
+        .profile-pictures img {
+            width: 80px;  /* Updated size */
+            height: 80px; /* Updated size */
+            border-radius: 50%;
+            border: 2px solid #1f5607;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Decorative lines */
+        .line {
+            width: 80%;
+            height: 2px;
+            background: rgba(58, 119, 4, 0.6);
+            margin: 10px 0;
+            box-shadow: 0 0 4px rgba(184, 244, 106, 0.6);
+        }
+
+        /* Back face styling */
+        .business-card .back {
+            transform: rotateY(180deg);
+            animation: slideInFromRight 1s ease-out;
+            background: rgba(0, 0, 0, 0.1);
+            color: #f5f1f1;
+        }
+
+        /* Card hover effect */
+        .card:hover .business-card {
+            transform: rotateY(180deg);
+        }
+
+        /* Typography */
+        h1 {
+            font-size: 1.6em; /* Increased font size */
+            margin: 10px 0;
+        }
+
+        h2 {
+            font-size: 1.2em; /* Increased font size */
+            margin: 5px 0;
+            font-weight: normal;
+        }
+
+        p {
+            font-size: 1em; /* Increased font size */
+            margin: 5px 0;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInFromLeft {
+            from { transform: translateX(-300px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes slideInFromRight {
+            from { transform: translateX(300px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-50vh);
+                opacity: 0;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .business-card {
+                width: 360px;
+                height: 220px;
+            }
+            h1 {
+                font-size: 1.4em;
+            }
+            h2, p {
+                font-size: 0.95em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Water bubbles -->
+    <div class="bubble" style="width: 40px; height: 40px; left: 10%; animation-duration: 12s; animation-delay: 0s;"></div>
+    <div class="bubble" style="width: 60px; height: 60px; left: 30%; animation-duration: 15s; animation-delay: 2s;"></div>
+    <div class="bubble" style="width: 20px; height: 20px; left: 50%; animation-duration: 8s; animation-delay: 4s;"></div>
+    <div class="bubble" style="width: 70px; height: 70px; left: 70%; animation-duration: 18s; animation-delay: 6s;"></div>
+    <div class="bubble" style="width: 50px; height: 50px; left: 85%; animation-duration: 20s; animation-delay: 8s;"></div>
+
+    <!-- Business card -->
+    <div class="card">
+        <div class="business-card">
+            <div class="face front">
+                <div class="profile-pictures">
+                    <img src="prf.jpg" alt="Your Profile Picture">
+                    <img src="profile.png" alt="Business Logo">
+                </div>
+                <div class="line"></div>
+                <h1>Dineth Gunawardana</h1>
+                <h2>Member : Ranjanas Group</h2>
+                <div class="line"></div>
+            </div>
+            <div class="face back">
+                <h1>Contact Info</h1>
+                <p>Email: dineth@ranjanasgroup.com</p>
+                <p>Phone: +94 1234556</p>
+                <p>Website: www.ranjanasgroup.com</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
